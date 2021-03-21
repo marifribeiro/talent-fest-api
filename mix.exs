@@ -23,6 +23,7 @@ defmodule TalentFestApi.MixProject do
   defp deps do
     [
       {:plug_cowboy, "~> 2.0"},
+      {:cowboy, "< 2.8.0", override: true},
       {:jason, "~> 1.1"}
     ]
   end
