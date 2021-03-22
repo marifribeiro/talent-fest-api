@@ -11,7 +11,9 @@ defmodule TalentFestApi.Application do
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: TalentFestApi.Router,
-        options: [port: System.get_env("PORT")]
+        http: [port: {:system, "PORT"}],
+        url: [scheme: "https", host: "mysterious-meadow-6277.herokuapp.com", port: 443],
+        force_ssl: [rewrite_on: [:x_forwarded_proto]]
       )
     ]
 
