@@ -10,14 +10,18 @@ defmodule TalentFestApi.Router do
   plug(:match)
   plug(:dispatch)
 
-  def mock_data do
-    Application.app_dir(:talent_fest_api, "response.json")
-    |> File.read!()
+  defp get_path() do
+    if System.get_env("HEROKU_EXEC_URL") do
+      "./response.json"
+    else
+      Path.expand("./", __DIR__)
+      |> Path.join("response.json")
+    end
   end
 
-  def tap(value) do
-    IO.inspect(value)
-    value
+  def mock_data do
+    get_path()
+    |> File.read!()
   end
 
   get "/schools" do
