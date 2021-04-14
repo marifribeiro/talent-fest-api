@@ -7,11 +7,13 @@ defmodule TalentFestApi.Application do
 
   @impl true
   def start(_type, _args) do
+    [applications: [:corsica]]
+
     children = [
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: TalentFestApi.Router,
-        options: [port: 4000]
+        options: [port: 8080]
         # String.to_integer(System.get_env("PORT"))
       )
     ]

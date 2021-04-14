@@ -25,7 +25,8 @@ defmodule TalentFestApi.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:cowboy, "< 2.8.0", override: true},
       {:jason, "~> 1.1"},
-      {:cors_plug, "~> 2.0"}
+      {:plug, "~> 1.0"},
+      {:corsica, "~> 1.0"}
     ]
   end
 end

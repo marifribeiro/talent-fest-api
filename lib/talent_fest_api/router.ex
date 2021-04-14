@@ -9,10 +9,11 @@ defmodule TalentFestApi.Router do
 
   plug(:match)
   plug(:dispatch)
-  # plug(CORSPlug, origin: "http://localhost:3000/")
+  plug(Corsica, origins: "*", allow_metods: :all)
 
   get "/schools" do
     conn
+    |> Corsica.put_cors_simple_resp_headers(origins: "*")
     |> put_resp_content_type("application/json")
     |> send_resp(
       200,
