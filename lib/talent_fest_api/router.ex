@@ -9,7 +9,7 @@ defmodule TalentFestApi.Router do
 
   plug(:match)
   plug(:dispatch)
-  plug(CORSPlug, origin: ~r/.*\d?$/)
+  # plug(CORSPlug, origin: "http://localhost:3000/")
 
   get "/schools" do
     conn

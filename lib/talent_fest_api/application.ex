@@ -11,7 +11,8 @@ defmodule TalentFestApi.Application do
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: TalentFestApi.Router,
-        options: [port: String.to_integer(System.get_env("PORT"))]
+        options: [port: 4000]
+        # String.to_integer(System.get_env("PORT"))
       )
     ]
 
