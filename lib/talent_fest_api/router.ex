@@ -9,6 +9,7 @@ defmodule TalentFestApi.Router do
 
   plug(:match)
   plug(:dispatch)
+  plug(CORSPlug, origin: ~r/.*\d?$/)
 
   get "/schools" do
     conn
